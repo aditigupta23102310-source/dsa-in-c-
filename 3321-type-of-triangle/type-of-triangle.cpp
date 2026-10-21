@@ -10,16 +10,23 @@ public:
             return "none";
         }
 
-        if (nums[0] == nums[1] &&nums[1] == nums[2]&&nums[2]==nums[0]) {
-            return "equilateral";
-        }
+        for (int i = 0; i < n - 2; i++) {
+            if (nums[i] == nums[i+1] &&
+                nums[i+1] == nums[i+2]) {
+                return "equilateral";
+            }
 
-        if (nums[0] == nums[1] || nums[1] == nums[2] || nums[2] == nums[0]) {
-            return "isosceles";
-        }
+            if (nums[i] == nums[i+1] ||
+                nums[i+1] == nums[i+2] ||
+                nums[i+2] == nums[i]) {
+                return "isosceles";
+            }
 
-        if (nums[0] != nums[1] &&nums[1] != nums[2] &&nums[2] != nums[0]) {
-            return "scalene";
+            if (nums[i] != nums[i+1] &&
+                nums[i+1] != nums[i+2] &&
+                nums[i+2] != nums[i]) {
+                return "scalene";
+            }
         }
 
         return "none";
